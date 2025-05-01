@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3rem;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        45deg,
+        rgb(255, 0, 0),
+        rgb(0, 128, 255)
+      );
+    position: relative;
+}
+.board {
+    display: grid;
+    height: 500px;
+    width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 3px solid black;
+    gap: 5px;
+    padding: 5px;
+    background-color: rgb(165, 80, 191);
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    border: 2px solid rgb(8, 8, 8);
+    background: rgba(0, 0, 0, 0.73);
+    cursor: pointer;
+}
+
+.cell.x::before {
+    content: "";
+    background-image: url('assets/x-icon.svg');
+    background-size: contain;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+
+.cell.o::before {
+    content: "";
+    background-image: url('assets/o-icon.svg');
+    background-size: contain;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+}
+
+::backdrop {
+    background-image: linear-gradient(
+        45deg,
+        rgb(255, 0, 0),
+        rgb(0, 128, 255)
+    );
+    opacity: 1;
+}
+
+dialog[id="names"]:open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 35vw;
+    height: 35vh;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+}
+
+dialog[id="names"] {
+    opacity: 0;
+    width: 35vw;
+    height: 35vh;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+}
+
+dialog > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form > label {
+    font-weight: 700;
+}
+
+form  input {
+    margin-bottom: 10px;
+    padding: 0.5rem;
+    line-height: 1.2rem;
+}
+
+form > button {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    appearance: none;
+    border-radius: 5px;
+    width: 10rem;
+}
+
+form > button:hover {
+    background-color: rgb(216, 155, 253)
+}
+
+form > button:active {
+    transform: translate(0, 2px);
+}
+
+dialog[id="restart"]:open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    width: 35vw;
+    height: 35vh;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog[id="start"] {
+    opacity: 0;
+    width: 35vw;
+    height: 35vh;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+}
+
+dialog[id="restart"]:open > button {
+    width: 10rem;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    appearance: none;
+    border-radius: 5px;
+}
+
+dialog[id="restart"]:open > button:hover {
+    background-color: rgb(216, 155, 253)
+}
+
+dialog[id="restart"]:open > button:active {
+    transform: translate(0, 4px);
+}
